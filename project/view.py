@@ -30,6 +30,17 @@ class MainWindow(QMainWindow):
         # ステータス表示
         self.status_label = QLabel("待機中...")
         layout.addWidget(self.status_label)
+    
+
+    def connect_signals(self):
+        """
+        ViewのUIイベントとControllerの処理を接続する。
+        Controllerが完全に初期化された後に main.py から呼ばれる想定。
+        """
+        if self.controller:
+            self.run_button.clicked.connect(self.controller.handle_run_button_click)
+        else:
+            print("Error: Controller is not set for MainWindow.")
 
     
     def connect_signals(self):

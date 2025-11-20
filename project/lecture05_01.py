@@ -9,7 +9,7 @@ def lecture05_01():
     capture_img = app.get_img()
 
     # 画像を読み込み
-    google_img = cv2.imread('template/images/google.png')
+    google_img = cv2.imread('project/images/google.png')
 
     if google_img is None:
         print("google.png が読み込めませんでした。")

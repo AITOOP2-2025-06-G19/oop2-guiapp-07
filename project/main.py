@@ -13,6 +13,7 @@ def main():
     view = MainWindow(controller_placeholder)
     controller = Controller(view)
     view.controller = controller  # Controllerを正式にセット
+    view.connect_signals()
 
     view.connect_signals()
 
