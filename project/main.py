@@ -14,6 +14,8 @@ def main():
     controller = Controller(view)
     view.controller = controller  # Controllerを正式にセット
 
+    view.connect_signals()
+
     view.show()
     sys.exit(app.exec())
 
