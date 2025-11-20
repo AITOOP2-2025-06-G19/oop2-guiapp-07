@@ -18,7 +18,7 @@ class MainWindow(QMainWindow):
         # 実行ボタン
         self.run_button = QPushButton("画像処理を実行")
         # ボタンが押されたらControllerのメソッドを呼び出す
-        self.run_button.clicked.connect(self.controller.handle_run_button_click)
+        ##self.run_button.clicked.connect(self.controller.handle_run_button_click)
         layout.addWidget(self.run_button)
 
         # 画像表示エリア
@@ -30,6 +30,18 @@ class MainWindow(QMainWindow):
         # ステータス表示
         self.status_label = QLabel("待機中...")
         layout.addWidget(self.status_label)
+
+    
+    def connect_signals(self):
+        """
+        ViewのUIイベントとControllerの処理を接続する。
+        Controllerが完全に初期化された後に main.py から呼ばれる想定。
+        """
+        if self.controller:
+            self.run_button.clicked.connect(self.controller.handle_run_button_click)
+        else:
+            print("Error: Controller is not set for MainWindow.")
+
 
     # Controllerから呼ばれて画像を表示するメソッド
     def display_image(self, image_path):
