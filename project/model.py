@@ -19,7 +19,7 @@ class ImageProcessor:
             return None
 
         # Google画像読み込み
-        google_img = cv2.imread('/Users/k24027kk/work/oop2/05/issue/images/google.png')
+        google_img = cv2.imread('project/images/google.png')
         if google_img is None:
             print("google画像が読み込めません")
             return None
